@@ -1,24 +1,54 @@
-header{
+.reg_button,
+.auth_button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    background: rgb(64, 165, 233);
+}
+
+.reg_button:hover,
+.auth_button:hover {
+    color: bisque;
+    background: rgb(26, 112, 192);
+}
+
+header {
     height: 100px;
     border-bottom: 2px solid rgb(52, 75, 175);
-    margin-bottom: 200px;
+    margin-bottom: 1em;
 }
-.vertical-line1{
+
+.vertical-line1 {
     margin: 20px;
     border: 2px solid rgb(52, 75, 175);
 }
-.header-information{
+
+.header-information {
     margin: 23px;
     margin-left: 0;
     color: rgb(52, 75, 175);
 }
-.div-link-to-reg-form{
-    margin: 30px;
-    background: rgb(48, 171, 228);
-    border-radius: 5px;
-}
-.link-to-reg-form{
+
+a.link-to-reg-form {
+    color: #fff;
     text-decoration: none;
-    color:blanchedalmond;
-    padding: 20px;
+    user-select: none;
+    background: rgb(39, 168, 228);
+    padding: 0.7em 1.5em;
+    outline: none;
+    /* убирать контур в Mozilla */
+    border-radius: .3em;
+
+}
+
+a.link-to-reg-form:hover {
+    background: rgb(46, 220, 243);
+    color: fff;
+}
+
+a.link-to-reg-form:active {
+    background: rgb(43, 112, 216);
 }
