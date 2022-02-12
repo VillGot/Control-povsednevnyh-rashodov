@@ -1,3 +1,12 @@
+@font-face {
+    font-family: General;
+    src: url(./fonts/OpenSans/OpenSans-Regular.ttf);
+}
+
+body{
+    font-family: General, sans-serif;
+}
+
 .reg_button,
 .auth_button {
     text-decoration: none;
@@ -51,4 +60,12 @@ a.link-to-reg-form:hover {
 
 a.link-to-reg-form:active {
     background: rgb(43, 112, 216);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+.main-header-information{
+    display: flex;
 }

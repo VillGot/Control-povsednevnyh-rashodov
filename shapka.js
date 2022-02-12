@@ -1,5 +1,5 @@
-document.write("<header class='d-flex justify-content-between'>\
-<div class='d-inline-flex'>\
+document.write("<header>\
+<div class='main-header-information'>\
 \
     <svg id='logo' data-name='Слой 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 175.87 175.87'>\
         <defs>\
