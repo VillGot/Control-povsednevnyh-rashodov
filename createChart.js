@@ -1,7 +1,7 @@
 var ctx = document.getElementById("myChart");
 
 let db = {
-	"groups": ["Продукты", "Рестораны", "Электроника", "Мебель"],
+	"groups": [{"name": "Продукты", "bgColor":"rgba(255, 99, 132, 0.2)", "borderColor": "rgba(255,99,132,1)"}, {"name": "Рестораны", "bgColor":"rgba(153, 102, 255, 0.2)", "borderColor": "rgba(153, 102, 255, 1)"}],
 	"users": [
 	  {
 		"name": "Efim",
@@ -13,16 +13,16 @@ let db = {
 		"expenses": [
 		 {"date": "12.02.2022",
 		  "time": "14:28",
-		  "item-name": "Хлеб",
+		  "itemName": "Хлеб",
 		  "cost": 32.90,
 		  "group": 0,
 		  "necessary": true
 		},
 		{"date": "12.02.2022",
 		 "time": "14:28",
-		 "item-name": "Соль",
+		 "itemName": "Соль",
 		 "cost": 7.99,
-		 "group": 0,
+		 "group": 1,
 		 "necessary": false
 		 }
 	   ],
@@ -36,7 +36,8 @@ let db = {
 	 }
 	]
   }
-  
+
+
 const objToChar = {
 	type: 'bar',
 	data: {
@@ -44,48 +45,21 @@ const objToChar = {
 		datasets: [{
 			label: 'Расходы',
 			data: [], 
-
+			backgroundColor: [],
+			borderColor: [],
+			borderWidth: 1
 		}]
 	}
 }
+
 //var db = ...
 
+//этот код распарсивает db и помещает нужные данные в объект диаграммы
+for(let i = 0; i<db.users[0].expenses.length; i+=1){
+	objToChar.data.labels.push(db.users[0].expenses[i].itemName + ' ' + db.users[0].expenses[i].date + ' ' + db.users[0].expenses[i].time)
+	objToChar.data.datasets[0].backgroundColor.push(db.groups[db.users[0].expenses[i].group].bgColor)
+	objToChar.data.datasets[0].borderColor.push(db.groups[db.users[0].expenses[i].group].borderColor)
+	objToChar.data.datasets[0].data.push(db.users[0].expenses[i].cost)
+}  
 
-	var myChart = new Chart(ctx, {
-	type: 'bar',
-	data: {
-		labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
-		datasets: [{
-			label: 'Расходы',
-
-			data: [12, 19, 3, 5, 2],
-			backgroundColor: [
-				'rgba(255, 99, 132, 0.2)',
-				'rgba(54, 162, 235, 0.2)',
-				'rgba(255, 206, 86, 0.2)',
-				'rgba(75, 192, 192, 0.2)',
-				'rgba(153, 102, 255, 0.2)',
-				'rgba(255, 159, 64, 0.2)', 
-				rgba()
-			],
-			borderColor: [
-				'rgba(255,99,132,1)',
-				'rgba(54, 162, 235, 1)',
-				'rgba(255, 206, 86, 1)',
-				'rgba(75, 192, 192, 1)',
-				'rgba(153, 102, 255, 1)',
-				'rgba(255, 159, 64, 1)'
-			],
-			borderWidth: 1
-		}]
-	},
-	options: {
-		scales: {
-			yAxes: [{
-				ticks: {
-					beginAtZero:true
-				}
-			}]
-		}
-	}
-	});
+	var myChart = new Chart(ctx, objToChar);

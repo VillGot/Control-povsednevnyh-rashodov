@@ -11,14 +11,14 @@ let db = {
       "expenses": [
        {"date": "12.02.2022",
         "time": "14:28",
-        "item-name": "Хлеб",
+        "itemName": "Хлеб",
         "cost": 32.90,
         "group": 0,
         "necessary": true
       },
       {"date": "12.02.2022",
        "time": "14:28",
-       "item-name": "Соль",
+       "itemName": "Соль",
        "cost": 7.99,
        "group": 0,
        "necessary": false
